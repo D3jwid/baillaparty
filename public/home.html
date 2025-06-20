@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bailla Party – Kup bilet</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <header>
+        <a href="#"><img src="./images/bailla_logo.png" alt="logo"></a>
+        <nav>
+            <div id="menuToggle">
+                <input type="checkbox" id="menuCheckbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <li><a href="#parties">Kup Bilet!</a></li>
+                    <li><a href="#parties">Fotki z imprez</a></li>
+                    <li><a href="#parties">Kontakt</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="parties" class="parties">
+            <span class="school_over"></span>
+            <span class="school_over"></span>
+            <span class="school_over"></span>
+            <span class="school_over"></span>
+            <span class="school_over"></span>
+        </div>
+    </main>
+    <footer></footer>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

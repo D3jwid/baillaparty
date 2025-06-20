@@ -9,9 +9,12 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.json());
 
-// Konfiguracja Nodemailer
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "party.html"));
+});
+
 const transporter = nodemailer.createTransport({
-  service: "gmail", // lub inny
+  service: "gmail",
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASS
