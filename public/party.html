@@ -26,27 +26,42 @@
     </nav>
   </header>
   <main>
-    <h1>Bailla Party – Kup bilet</h1>
-    <form id="form">
-      <label for="message">Twoja wiadomość:</label><br>
-      <textarea name="message" id="message" required></textarea><br>
-      <button type="submit">Kup</button>
-    </form>
+    <div class="form-container">
+      <h1>Bailla Party – Kup bilet</h1>
+      <form id="form">
+        <input type="text" name="name" id="name" required placeholder="Imię*">
+        <input type="text" name="lastname" id="lastname" required placeholder="Nazwisko*">
+        <input type="text" name="ig" id="ig" placeholder="Instagram">
+        <input type="text" name="phone" id="phone" placeholder="Telefon">
+        <input type="email" name="mail" id="mail" required placeholder="E-mail*">
+        <button type="submit" class="btn-23">
+          <span class="text">KUP BILET</span>
+          <span aria-hidden="" class="marquee">KUP BILET</span>
+        </button>
+        <p>Po zakupie uczestnik dostanie meila z biletem w ciągu 24H</p>
+      </form>
+    </div>
   </main>
   <footer></footer>
   <script>
     document.getElementById("form").addEventListener("submit", async function (e) {
       e.preventDefault();
-      const message = document.getElementById("message").value;
+
+      const name = document.getElementById("name").value;
+      const lastname = document.getElementById("lastname").value;
+      const ig = document.getElementById("ig").value;
+      const phone = document.getElementById("phone").value;
+      const mail = document.getElementById("mail").value;
+
       const res = await fetch("/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message })
+        body: JSON.stringify({ name, lastname, ig, phone, mail })
       });
 
       if (res.ok) {
         alert("Wiadomość wysłana!");
-        document.getElementById("message").value = "";
+        document.getElementById("form").reset();
       } else {
         alert("Błąd podczas wysyłania.");
       }

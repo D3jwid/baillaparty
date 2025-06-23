@@ -22,14 +22,28 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post("/send", async (req, res) => {
-    const { message } = req.body;
+    const { name, lastname, ig, phone, mail } = req.body;
+
+    console.log("Dane z formularza:", req.body); // ← to dodaj!
+
+    const emailText = `
+  Nowe zgłoszenie Bailla Party:
+  
+  👤 Imię: ${name}
+  👤 Nazwisko: ${lastname}
+  📸 Instagram: ${ig || "nie podano"}
+  📞 Telefon: ${phone || "nie podano"}
+  📧 E-mail: ${mail}
+  
+  Wyślij bilet z kodem QR na meila!
+    `;
 
     try {
         await transporter.sendMail({
             from: `"Bailla Party" <${process.env.MAIL_USER}>`,
             to: process.env.MAIL_TO,
-            subject: "Nowa wiadomość z formularza",
-            text: message
+            subject: "NOWY BILET!!!",
+            text: emailText
         });
 
         res.sendStatus(200);

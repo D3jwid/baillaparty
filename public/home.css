@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 @import 'nav.css';
+@import 'button.css';
 
 body,
 html {
@@ -8,6 +9,7 @@ html {
     height: 100%;
     font-family: "Michroma";
     background-color: rgb(52, 19, 65);
+    scroll-behavior: smooth;
 }
 
 header {
@@ -39,6 +41,7 @@ header a img {
 .main-page {
     width: 100%;
     height: 100vh;
+    text-align: center;
 }
 
 #slider-wrapper {
@@ -63,11 +66,12 @@ header a img {
 .background::after {
     content: '';
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(52, 19, 65, 0.7); /* półprzezroczysta warstwa */
-  }
+    background-color: rgba(52, 19, 65, 0.7);
+}
 
 .content {
     position: relative;
@@ -89,9 +93,33 @@ header a img {
 }
 
 .parties>span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 400px;
     height: 200px;
     border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.buy-button {
+    position: absolute;
+    background: #5E0D98;
+    background: linear-gradient(90deg, rgba(94, 13, 152, 1) 0%, rgba(140, 22, 147, 1) 50%, rgba(199, 89, 201, 1) 100%);
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    opacity: 0;
+    box-shadow: 0 0 30px 150px rgba(0, 0, 0, 0.362);
+}
+
+.parties>span:hover .buy-button {
+    opacity: 1;
 }
 
 .school_over {
