@@ -10,7 +10,7 @@ app.use(express.static("public"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "party.html"));
+  res.sendFile(path.join(__dirname, "public", "home.html"));
 });
 
 const transporter = nodemailer.createTransport({

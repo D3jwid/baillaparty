@@ -26,6 +26,14 @@
         </nav>
     </header>
     <main>
+        <div id="slider-wrapper" class="main-page">
+            <div class="background" id="bg1"></div>
+            <div class="background" id="bg2"></div>
+            <div class="content">
+                <h1>Witaj!</h1>
+                <p>To jest treść strony.</p>
+            </div>
+        </div>
         <div id="parties" class="parties">
             <span class="school_over"></span>
             <span class="school_over"></span>
@@ -35,14 +43,8 @@
         </div>
     </main>
     <footer></footer>
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
+    <script src="./scripts/bg.js"></script>
+    <script src="./scripts/nav.js"></script>
 </body>
 
 </html>

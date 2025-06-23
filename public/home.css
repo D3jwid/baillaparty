@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 @import 'nav.css';
 
-body {
-    background-color: rgb(81, 12, 108);
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: "Michroma";
+    background-color: rgb(52, 19, 65);
 }
 
 header {
@@ -14,6 +18,7 @@ header {
     justify-content: center;
     align-items: center;
     position: fixed;
+    z-index: 2;
 }
 
 header a {
@@ -31,6 +36,49 @@ header a img {
     width: 100px;
 }
 
+.main-page {
+    width: 100%;
+    height: 100vh;
+}
+
+#slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+    opacity: 0;
+}
+
+.background::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(52, 19, 65, 0.7); /* półprzezroczysta warstwa */
+  }
+
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
 .parties {
     width: 80%;
     padding: 150px 10% 0 10%;
@@ -40,7 +88,7 @@ header a img {
     gap: 20px;
 }
 
-.parties > span {
+.parties>span {
     width: 400px;
     height: 200px;
     border-radius: 20px;
