@@ -38,32 +38,24 @@
           <span class="text">KUP BILET</span>
           <span aria-hidden="" class="marquee">KUP BILET</span>
         </button>
-        <p>Po zakupie uczestnik dostanie meila z biletem w ciągu 24H</p>
+        <p>Po zakupie uczestnik dostanie maila z biletem w ciągu 24H</p>
       </form>
     </div>
   </main>
   <footer></footer>
   <script>
-    document.getElementById("form").addEventListener("submit", async function (e) {
+    const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzkoKFoM6ZmFcjRVfQnPffT_P5vtAPhXbPsqPkLGjFUGyeFhzCIS2irO86oTDwEx3s-ww/exec'; // <- podmień na swój adres
+    
+    document.getElementById('form').addEventListener('submit', async (e) => {
       e.preventDefault();
-
-      const name = document.getElementById("name").value;
-      const lastname = document.getElementById("lastname").value;
-      const ig = document.getElementById("ig").value;
-      const phone = document.getElementById("phone").value;
-      const mail = document.getElementById("mail").value;
-
-      const res = await fetch("/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, lastname, ig, phone, mail })
-      });
-
+      const fd = new FormData(e.target);
+      const res = await fetch(WEBAPP_URL, { method: 'POST', body: fd });
+    
       if (res.ok) {
-        alert("Wiadomość wysłana!");
-        document.getElementById("form").reset();
+        alert('Dane zostały wysłane do arkusza Google!');
+        e.target.reset();
       } else {
-        alert("Błąd podczas wysyłania.");
+        alert('Błąd przy wysyłaniu danych');
       }
     });
   </script>
